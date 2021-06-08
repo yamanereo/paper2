@@ -1,0 +1,12 @@
+<h1>SenseOfCommitment</h1>
+<h3>Tweet一覧</h3>
+<%= link_to "新規投稿へ", posts_new_path %>
+<div class="post-container">
+  <% @post.each do |t| %>
+    <div class="post">
+      <%= t.title %>
+      <%= t.about %>
+      <%= t.user_id %>
+    </div>
+  <% end %>
+</div>
