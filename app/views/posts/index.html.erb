@@ -4,9 +4,12 @@
 <div class="post-container">
   <% @post.each do |t| %>
     <div class="post">
+    <%= t.user.email %>
       <%= t.title %>
       <%= t.about %>
       <%= t.user_id %>
+      <%= link_to "詳細へ", post_path(t.id) %>
+
     </div>
   <% end %>
 </div>
