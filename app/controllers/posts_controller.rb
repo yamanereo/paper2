@@ -13,7 +13,7 @@ class PostsController < ApplicationController
 
         @post.user_id = current_user.id
 
-        if post.save
+        if @post.save
           redirect_to :action => "index"
         else
           redirect_to :action => "new"
@@ -36,10 +36,16 @@ class PostsController < ApplicationController
           redirect_to :action => "new"
         end
     end
+
+    def destroy
+      post = Post.find(params[:id])
+      post.destroy
+      redirect_to action: :index
+    end
     
     private
       def post_params
-        params.require(:post).permit(:title, :about)
+        params.require(:post).permit(:title, :about, :category)
     end
 
 end

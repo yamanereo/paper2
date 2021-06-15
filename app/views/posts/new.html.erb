@@ -7,6 +7,15 @@
   </div>
 
   <div class="field">
+    <%= f.label :category %>
+    <%= f.select :category, 
+    [["経済", "経済"], 
+    ["国際", "国際"], 
+    ["スポーツ", "スポーツ"],
+    ["宗教", "宗教"]], include_blank: "選択して下さい" %>
+  </div>
+
+  <div class="field">
     <%= f.label :about %>
     <%= f.text_field :about, :size => 140 %>
   </div>

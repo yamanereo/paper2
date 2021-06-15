@@ -1,23 +1,32 @@
 <h1>SenceOfCommitment</h1>
 <h3>Tweet詳細</h3>
+
 <div class="post">
   <p><%= @post.title %></p>
+  <p><%= @post.category %></p>
   <p><%= @post.about %></p>
-</div>
 
 <% if user_signed_in? %>
 <% if current_user.already_liked?(@post) %>
-    <%= link_to tweet_like_path(@post), method: :delete do %>
-       <p>いいねを取り消す</p><%= @post.likes.count %>
+    <%= link_to post_like_path(@post), method: :delete do %>
+      <i class="fas fa-heart"></i><%= @post.likes.count %>
     <% end %>
 <% else %>
-    <%= link_to tweet_likes_path(@post), method: :post do %>
+    <%= link_to post_likes_path(@post), method: :post do %>
       <i class="far fa-heart"></i><%= @post.likes.count %>
     <% end %>
-<% end %>
+  <% end %>
 <% else %>
 <i class="far fa-heart"></i><%= @post.likes.count %>
 <% end %>
 
-<%= link_to "Tweet一覧に戻る", posts_index_path %>
+</div>
+
+<h2>いいねしたユーザー</h2>
+<% @post.liked_users.each do |user| %>
+  <li><%= user.email %></li>
+<% end %>
+
+
+<%= link_to "Tweet一覧に戻る", posts_path %>
 <%= link_to "編集する", edit_post_path(@post.id) %>
