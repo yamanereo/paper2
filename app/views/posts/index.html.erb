@@ -1,5 +1,12 @@
 <h1>SenseOfCommitment</h1>
 <h3>Tweet一覧</h3>
+
+<h3>投稿を検索</h3>
+  <%= form_tag({controller:"posts",action:"index"}, method: :get) do %>
+    <%= text_field_tag :search %>
+    <%= submit_tag '検索する'  %>
+<% end %>
+
 <%= link_to "新規投稿へ", new_post_path %>
 <div class="post-container">
   <% @post.each do |t| %>
@@ -27,7 +34,7 @@
 
       <%= t.created_at %>
       <%= link_to "詳細へ", post_path(t.id) %>
-      <%= link_to "編集する", edit_post_path(t.id) %>
-      <%= link_to "削除する", post_path(t.id), method: :delete %>
+      <%= link_to "編集する", edit_post_path(t.id) if t.user_id == current_user.id %>
+      <%= link_to "削除する", post_path(t.id), method: :delete if t.user_id == current_user.id %>
 
       <% end %>
