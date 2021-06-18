@@ -24,11 +24,14 @@ before_action :authenticate_user!, except:[:index]
 
         @post.user_id = current_user.id
 
+      
+
         if @post.save
-          redirect_to :action => "index"
+          redirect_to posts_url
         else
-          redirect_to :action => "new"
+          render 'posts/new'
         end
+        
     end
 
     def show
@@ -41,10 +44,12 @@ before_action :authenticate_user!, except:[:index]
 
     def update
         post = Post.find(params[:id])
+        
+
         if post.update(post_params)
-          redirect_to :action => "show", :id => post.id
+          redirect_to tasks_url
         else
-          redirect_to :action => "new"
+          render 'posts/edit'
         end
     end
 

@@ -1,13 +1,25 @@
 <h1>SenceOfCommitment</h1>
+
+<% if @post.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <h3>Tweet一覧</h3>
 <%= form_for @post do |f| %>
   <div class="field">
-    <%= f.label :title %>
+  <br><%= f.label :title %><br/>
+
     <%= f.text_field :title, :size => 140 %>
   </div>
 
   <div class="field">
-    <%= f.label :category %>
+  <br><%= f.label :category %><br/>
     <%= f.select :category, 
     [["経済", "経済"], 
     ["国際", "国際"], 
@@ -16,7 +28,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :about %>
+  <br><%= f.label :about %><br/>
     <%= f.text_field :about, :size => 140 %>
   </div>
 

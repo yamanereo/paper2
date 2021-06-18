@@ -1,3 +1,14 @@
+<h1>SenseOfCommitment</h1>
+<% if @task.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% @task.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
 <%= form_for @post do |f| %>
     <%= f.label :title %>
     <%= f.text_field :title, :size => 140 %> 
