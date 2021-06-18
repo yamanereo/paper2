@@ -14,8 +14,7 @@
 <%= form_for @post do |f| %>
   <div class="field">
   <br><%= f.label :title %><br/>
-
-    <%= f.text_field :title, :size => 140 %>
+  <%= f.text_field :title, :size => 140 %>
   </div>
 
   <div class="field">
@@ -31,6 +30,8 @@
   <br><%= f.label :about %><br/>
     <%= f.text_field :about, :size => 140 %>
   </div>
+
+  <%= date_field_tag 'post[time]', nil %>
 
   <%= f.submit "Tweetする" %>
 <% end %>

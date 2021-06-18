@@ -3,8 +3,7 @@ class PostsController < ApplicationController
 before_action :authenticate_user!, except:[:index]
 
     def index
-        @post = Post.all
-
+        
         if params[:search] == nil
           @posts= Post.all
         elsif params[:search] == ''
@@ -61,7 +60,7 @@ before_action :authenticate_user!, except:[:index]
     
     private
       def post_params
-        params.require(:post).permit(:title, :about, :category)
+        params.require(:post).permit(:title, :about, :category, :time)
     end
 
 end

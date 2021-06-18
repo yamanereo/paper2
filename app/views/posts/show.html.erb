@@ -5,6 +5,7 @@
   <p><%= @post.title %></p>
   <p><%= @post.category %></p>
   <p><%= @post.about %></p>
+  <p><%= @post.time %></p>
 
 <% if user_signed_in? %>
 <% if current_user.already_liked?(@post) %>
