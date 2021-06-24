@@ -25,3 +25,42 @@
 h1{
     background-color: aquamarine;
 }
+
+header{
+    -webkit-text-size-adjust: 100%;
+    word-break: normal;
+    tab-size: 4;
+    --swiper-theme-color: #007aff;
+    --swiper-navigation-size: 44px;
+    --noteGreen: #2cb696;
+    --noteDarkenGreen: #228d74;
+    --customPrimaryColor: #2cb696;
+    --customPrimaryDarkenColor: #228d74;
+    --ih: 6.87px;
+    font-family: -apple-system,BlinkMacSystemFont,Helvetica Neue,Segoe UI,Hiragino Kaku Gothic ProN,Hiragino Sans,ヒラギノ角ゴ ProN W3,Arial,メイリオ,Meiryo,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #222;
+    word-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: "kern";
+    font-kerning: normal;
+    font-size: 16px;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    box-sizing: inherit;
+    position: relative;
+    background-color: #fff;
+    border-bottom: 1px solid #e6e6e6;
+    transition: transform .3s ease,-webkit-transform .3s ease;
+    box-shadow: none;
+}
+
+.o-navbarMenu__menuItem a-link{
+    float: left;
+}  
+
+.o-navBar{
+    overflow: hidden;
+}
